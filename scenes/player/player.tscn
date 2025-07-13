@@ -1,13 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://dm5u5nihsq45w"]
+[gd_scene load_steps=5 format=3 uid="uid://dm5u5nihsq45w"]
 
 [ext_resource type="Script" uid="uid://d1nwyfl2memf" path="res://player.gd" id="1_dovo2"]
 [ext_resource type="Texture2D" uid="uid://dtydlvufhna58" path="res://sprites/Astro_Guy.png" id="2_gmlin"]
+
+[sub_resource type="Curve" id="Curve_dovo2"]
+_data = [Vector2(0.0106383, 0.831461), 0.0, 1.36682, 0, 0, Vector2(0.180851, 0.988764), 0.0, 0.0, 0, 0, Vector2(0.718085, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.741573), -1.35795, 0.0, 0, 0]
+point_count = 4
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lvxji"]
 size = Vector2(31, 61)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_dovo2")
+dash_curve = SubResource("Curve_dovo2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_gmlin")
