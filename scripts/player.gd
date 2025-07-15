@@ -14,6 +14,7 @@ extends CharacterBody2D
 @export var dash_cooldown = 0.4
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var collision_shape: CollisionShape2D = $CollisionShape2D
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -24,6 +25,7 @@ var dash_direction = 0
 var dash_timer = 0
 var dash_count = false
  
+
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
@@ -36,12 +38,14 @@ func _physics_process(delta):
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_axis("left", "right")
 	
-	#Sets the direction of the animation
+	# Sets the direction of the animation
 	if direction > 0:
 		animated_sprite.flip_h = false
+		animated_sprite.position = Vector2(collision_shape.position.x +9, collision_shape.position.y)
 	elif direction < 0:
 		animated_sprite.flip_h = true
-		
+		animated_sprite.position = Vector2(collision_shape.position.x -9, collision_shape.position.y)
+
 	# Playes animation
 	if is_on_floor():
 		if direction == 0:
@@ -50,6 +54,8 @@ func _physics_process(delta):
 			animated_sprite.play("run")
 	elif is_dashing == true:
 		animated_sprite.play("dash")
+	elif is_on_wall():
+		animated_sprite.play("grab")
 	else:
 		animated_sprite.play("jump")
 
