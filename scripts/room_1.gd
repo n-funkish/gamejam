@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var pause_menu: Control = $Pause_menu
+@onready var pause_menu: Control = $Pause
 var paused: bool = false
 
 func _process(_delta: float) -> void:

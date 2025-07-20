@@ -7,8 +7,9 @@
 _data = [Vector2(0.0106383, 0.831461), 0.0, 1.36682, 0, 0, Vector2(0.180851, 0.988764), 0.0, 0.0, 0, 0, Vector2(0.718085, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.741573), -1.35795, 0.0, 0, 0]
 point_count = 4
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lvxji"]
-size = Vector2(26, 52)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dovo2"]
+radius = 11.0
+height = 52.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gmlin"]
 atlas = ExtResource("2_dovo2")
@@ -113,7 +114,7 @@ script = ExtResource("1_dovo2")
 dash_curve = SubResource("Curve_dovo2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_lvxji")
+shape = SubResource("CapsuleShape2D_dovo2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(9, 0)
