@@ -25,11 +25,32 @@ var dash_start_position = 0
 var dash_direction = 0
 var dash_timer = 0
 var dash_count = false
+<<<<<<< HEAD
 var dead = false
  
 #func _ready():
 	#Global.playerBody = self
 	
+=======
+
+@onready var pause_menu: Control = $Pause_menu
+var paused: bool = false
+
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("pause"):
+		PauseMenu()
+
+func PauseMenu():
+	if paused:
+		pause_menu.visible = false
+		Engine.time_scale = 1
+		
+	else:
+		pause_menu.visible = true
+		Engine.time_scale = 0
+	paused = !paused
+
+>>>>>>> 7c62ba2c6b65de23aff1e2ca0446ed1f4fa20c3c
 
 func _physics_process(delta):
 	# Add the gravity.
