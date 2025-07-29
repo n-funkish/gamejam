@@ -14,17 +14,22 @@ extends CharacterBody2D
 @export var dash_cooldown = 0.4
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
-@onready var collision_shape: CollisionShape2D = $CollisionShape2D
+@onready var collision_shape: CollisionShape2D = $CollisionShape2D2
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
  
+
 var is_dashing = false
 var dash_start_position = 0
 var dash_direction = 0
 var dash_timer = 0
 var dash_count = false
+var dead = false
  
+#func _ready():
+	#Global.playerBody = self
+	
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -102,6 +107,22 @@ func _physics_process(delta):
 	# Reduces the dash timer
 	if dash_timer > 0:
 		dash_timer -= delta
- 
+	
+	#Players Global variables,  <unfinished>
+	#Global.playerDamageZone = $DamageBox
+	#if is_dashing:
+		#Global.playerAttaking = true
+	#elif !is_dashing:
+		#Global.playerAttaking = false
+	
 	move_and_slide()
+
+# Unfinished
+
+#func check_hitbox():
+	#var hitbox_area = $HurtBox.get_overlapping_areas()
+	#if hitbox_area:
+		#var hitbox = hitbox_area.front()
+		#if hitbox.get_parent()is Spik:
+			#dead = true
 #hello
