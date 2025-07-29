@@ -1,10 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cb666mrb6dicd"]
+[gd_scene load_steps=6 format=3 uid="uid://b1oqnnwvl6t68"]
 
-[ext_resource type="Script" uid="uid://bqgsnsffcpdn8" path="res://scripts/pause.gd" id="1_iohl6"]
+[ext_resource type="Script" uid="uid://dnbgdqal416d2" path="res://scripts/death_menu.gd" id="1_s3l4v"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4x5vw"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jgt2l"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iohl6"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nx5j2"]
 bg_color = Color(0.341176, 0.176471, 0.6, 1)
 corner_radius_top_left = 30
 corner_radius_top_right = 30
@@ -13,14 +13,14 @@ corner_radius_bottom_left = 30
 shadow_size = 10
 shadow_offset = Vector2(4, 4)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q52mi"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dyp04"]
 bg_color = Color(0.341176, 0.176471, 0.6, 1)
 corner_radius_top_left = 30
 corner_radius_top_right = 30
 corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ino5w"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_df3uq"]
 bg_color = Color(0.341176, 0.176471, 0.6, 1)
 corner_radius_top_left = 30
 corner_radius_top_right = 30
@@ -29,16 +29,14 @@ corner_radius_bottom_left = 30
 shadow_size = 10
 shadow_offset = Vector2(4, 4)
 
-[node name="Pause_menu" type="Control"]
-process_mode = 3
-z_index = 1
+[node name="DeathMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_iohl6")
+script = ExtResource("1_s3l4v")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -58,17 +56,17 @@ grow_vertical = 2
 layout_mode = 2
 theme_override_constants/separation = 30
 
-[node name="resume" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="restart" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 30
-theme_override_styles/focus = SubResource("StyleBoxEmpty_4x5vw")
-theme_override_styles/hover = SubResource("StyleBoxFlat_iohl6")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_q52mi")
-theme_override_styles/normal = SubResource("StyleBoxFlat_ino5w")
-text = "Resume"
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jgt2l")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nx5j2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_dyp04")
+theme_override_styles/normal = SubResource("StyleBoxFlat_df3uq")
+text = "Restart"
 
 [node name="mainMenu" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -76,10 +74,10 @@ size_flags_vertical = 3
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 30
-theme_override_styles/focus = SubResource("StyleBoxEmpty_4x5vw")
-theme_override_styles/hover = SubResource("StyleBoxFlat_iohl6")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_q52mi")
-theme_override_styles/normal = SubResource("StyleBoxFlat_ino5w")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jgt2l")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nx5j2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_dyp04")
+theme_override_styles/normal = SubResource("StyleBoxFlat_df3uq")
 text = "Main menu"
 
 [node name="quit" type="Button" parent="MarginContainer/VBoxContainer"]
@@ -88,12 +86,12 @@ size_flags_vertical = 3
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 30
-theme_override_styles/focus = SubResource("StyleBoxEmpty_4x5vw")
-theme_override_styles/hover = SubResource("StyleBoxFlat_iohl6")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_q52mi")
-theme_override_styles/normal = SubResource("StyleBoxFlat_ino5w")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jgt2l")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nx5j2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_dyp04")
+theme_override_styles/normal = SubResource("StyleBoxFlat_df3uq")
 text = "Quit"
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/mainMenu" to="." method="_on_main_menu_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/quit" to="." method="_on_quit_pressed"]

@@ -13,7 +13,16 @@ config_version=5
 config/name="Game jam"
 run/main_scene="uid://cmteyu1ronc4q"
 config/features=PackedStringArray("4.4", "Mobile")
-config/icon="res://icon.svg"
+config/icon="res://sprites/icon.svg"
+
+[audio]
+
+buses/default_bus_layout="res://music/default_bus_layout.tres"
+
+[display]
+
+window/size/mode=3
+window/stretch/mode="canvas_items"
 
 [input]
 
